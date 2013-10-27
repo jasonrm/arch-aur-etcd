@@ -1,0 +1,12 @@
+[Unit]
+Description=A highly-available key value store for shared configuration and service discovery
+Documentation=http://coreos.com/docs/etcd/
+Requires=network.target
+After=multi-user.target
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/etcd -d /var/lib/etcd
+
+[Install]
+WantedBy=multi-user.target

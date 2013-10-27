@@ -1,0 +1,20 @@
+post_install() {
+	systemctl daemon-reload
+}
+
+pre_upgrade() {
+	systemctl stop etcd
+}
+
+post_upgrade() {
+	systemctl daemon-reload
+	systemctl start etcd
+}
+
+pre_remove() {
+	systemctl stop etcd
+}
+
+post_remove() {
+	systemctl daemon-reload
+}
